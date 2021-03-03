@@ -27,7 +27,7 @@ public class myDatabase extends SQLiteOpenHelper {
         db.execSQL("drop table if exists users");
         onCreate(db);
     }
-
+// Insert Database function
     public boolean insert_data(String name, String username, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues c = new ContentValues();
@@ -47,7 +47,9 @@ public class myDatabase extends SQLiteOpenHelper {
         return cursor;
 
     }
-
+    
+    
+    // Update Database function
     public boolean UpDate_Data(String name,String username,String password){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -65,7 +67,7 @@ public class myDatabase extends SQLiteOpenHelper {
         else return false;
 
     }
-
+// Delete Database function
     public boolean Delete_userName(String username){
 
         SQLiteDatabase db = this.getWritableDatabase();
