@@ -41,6 +41,7 @@ public class myDatabase extends SQLiteOpenHelper {
             return true;}
     }
 
+    // View Database Users
     public Cursor get_Data_View(){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from users ", null);
