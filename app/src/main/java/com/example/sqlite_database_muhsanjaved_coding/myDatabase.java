@@ -48,6 +48,24 @@ public class myDatabase extends SQLiteOpenHelper {
 
     }
 
+    public boolean UpDate_Data(String name,String username,String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name",name);
+        contentValues.put("username",username);
+        contentValues.put("password",password);
+
+        Cursor cursor = db.rawQuery("select * from users where username=?",new String[]{username});
+        if (cursor.getCount()>0){
+            long r = db.update("users", contentValues ,"username=?", new String[]{username});
+            if (r == -1){return false;}
+            else {return true;}
+        }
+        else return false;
+
+    }
+
     public boolean Delete_userName(String username){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -64,5 +82,6 @@ public class myDatabase extends SQLiteOpenHelper {
         else {
             return false ;
         }
+
     }
 }

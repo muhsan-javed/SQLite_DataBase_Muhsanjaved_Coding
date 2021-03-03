@@ -91,6 +91,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+        btnUpDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = edName.getText().toString();
+                String username = edUserName.getText().toString();
+                String password = edPassword.getText().toString();
+
+                boolean i = database.UpDate_Data(name,username,password);
+                if (i == true){
+                    Toast.makeText(MainActivity.this,"Successful",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Not Successful",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
     }
 
     private void findId() {
